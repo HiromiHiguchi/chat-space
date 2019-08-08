@@ -30,8 +30,8 @@ has_many :groups_users
 |user_id|reference|null: false, foreign_key: true|
 |group_id|reference|null: false, foreign_key: true|
 ### Association
-blongs_to :users
-blongs_to :groups
+blongs_to :user
+blongs_to :group
 
 ## groups_usersテーブル
 
