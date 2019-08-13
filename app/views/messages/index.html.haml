@@ -1,31 +1,7 @@
-.header
-  グループを作成しました
-
-
 .contents
   
   .contents__chat-left-side
-    
-    .contents__chat-left-side__top
-      .contents__chat-left-side__top__box
-        .contents__chat-left-side__top__box__user-name
-          test-user
-        .contents__chat-left-side__top__box__menu
-        %ul
-        .contents__chat-left-side__top__box__menu
-          %li.contents__chat-left-side__top__box__menu__new-group
-            = fa_icon "edit"
-          %li.contents__chat-left-side__top__box__menu__new-group
-            = fa_icon "cog"
-          .contents__chat-left-side__top__box__menu__edit-user
-    
-    .contents__chat-left-side__groups
-      .contents__chat-left-side__groups__group
-        .contents__chat-left-side__groups__group__group-name
-          test-group
-        .contents__chat-left-side__groups__group__latest-message
-          まだメッセージがありません
-  
+    =render 'shared/side_bar'
   
   .contents__chat-right-side
     
@@ -41,25 +17,15 @@
           test-user
       .contents__chat-right-side__top__edit-btn
         Edit
-    
+  
     .contents__chat-right-side__messages
-      .contents__chat-right-side__messages__message
-        .contents__chat-right-side__messages__message__upper-info
-          .contents__chat-right-side__messages__message__upper-info__talker
-            test-user
-          .contents__chat-right-side__messages__message__upper-info__date
-            2019/08/08(Tun)
-      .contents__chat-right-side__messages__message__text
-        こんにちは！
-    .contents__chat-right-side__from
-      .contents__chat-right-side__from__new_message
-        .contents__chat-right-side__from__new_message__input-box
-          type a message
-          .contents__chat-right-side__from__new_message__input-box__text
-          .contents__chat-right-side__from__new_message__input-box__image
-          %ul
-          .contents__chat-right-side__from__new_message__input-box__image
-            %li.contents__chat-right-side__from__new_message__input-box__image__file
-            = fa_icon "image"
-      .contents__chat-right-side__from__submit-btn
-        Send
+      = render @messages
+    
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'

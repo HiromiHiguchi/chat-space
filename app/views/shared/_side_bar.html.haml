@@ -1,0 +1,23 @@
+.contents__chat-left-side__top
+  .contents__chat-left-side__top__box
+    .contents__chat-left-side__top__box__user-name
+      = current_user.name
+    .contents__chat-left-side__top__box__menu
+    %ul
+    .contents__chat-left-side__top__box__menu
+      %li.contents__chat-left-side__top__box__menu__new-group 
+        = link_to new_group_path do
+          = fa_icon "edit"
+      %li.contents__chat-left-side__top__box__menu__new-group
+        = link_to edit_user_path(current_user) do
+          = fa_icon "cog"
+      .contents__chat-left-side__top__box__menu__edit-user
+
+.contents__chat-left-side__groups
+  - current_user.groups.each do |group|
+    .contents__chat-left-side__groups__group
+      = link_to group_messages_path(group) do
+        .contents__chat-left-side__groups__group__group-name
+          = group.name
+        .contents__chat-left-side__groups__group__latest-message
+          = group.show_last_message
