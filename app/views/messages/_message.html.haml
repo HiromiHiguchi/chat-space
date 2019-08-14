@@ -1,12 +1,12 @@
-
 .contents__chat-right-side__messages__message
   .contents__chat-right-side__messages__message__upper-info
     .contents__chat-right-side__messages__message__upper-info__talker
       = message.user.name
     .contents__chat-right-side__messages__message__upper-info__date
       = message.created_at.strftime("%Y/%m/%d %H:%M")
-  .contents__chat-right-side__messages__message__text
-    - if message.content.present?
-      %p.contents__chat-right-side__messages__message__text
-        = message.content
-    = image_tag message.image.url, class: 'contents__chat-right-side__messages__message__text' if message.image.present?
+.contents__chat-right-side__messages__message__text
+  - if message.content.present?
+    %p.contents__chat-right-side__messages__message__text
+      = message.content
+  = image_tag message.image.url, class: 'contents__chat-right-side__messages__message__text' if message.image.present?
+
