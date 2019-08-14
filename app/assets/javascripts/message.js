@@ -33,7 +33,7 @@ $(function(){
       .done(function(data){
         var html = buildHTML(data);
         $('.contents__chat-right-side__messages').append(html);
-        $('.form__message').val('');
+        $('.new_message')[0].reset();
         $('.form__submit').prop('disabled', false);
         $('.contents__chat-right-side__messages').animate({ scrollTop: $('.contents__chat-right-side__messages')[0].scrollHeight}, 'fast');
       })
