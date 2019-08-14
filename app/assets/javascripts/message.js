@@ -1,5 +1,9 @@
 $(function(){
   function buildHTML(message){
+  var image = ""
+  if (message.image.url !== null) {
+    image = `<img src="${message.image.url}">`
+  }
   var html = `<div class="contents__chat-right-side__messages__message">
                 <div class="contents__chat-right-side__messages__message__upper-info">
                     <div class="contents__chat-right-side__messages__message__upper-info__talker">
@@ -13,6 +17,7 @@ $(function(){
                 <div class="contents__chat-right-side__messages__message__text">
                     <p class="contents__chat-right-side__messages__message__text">
                         ${ message.content }
+                        ${image}
                     </p>
                 </div>`
         return html; 
@@ -31,6 +36,7 @@ $(function(){
       })
 
       .done(function(data){
+        console.log(data)
         var html = buildHTML(data);
         $('.contents__chat-right-side__messages').append(html);
         $('.new_message')[0].reset();
