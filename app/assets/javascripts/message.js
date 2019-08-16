@@ -33,7 +33,6 @@ $(function(){
       })
 
       .done(function(data){
-        console.log(data)
         var html = buildHTML(data);
         $('.contents__chat-right-side__messages').append(html);
         $("form")[0].reset();
