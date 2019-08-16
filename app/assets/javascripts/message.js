@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-  var image = message.image? `<img src="${message.image.url}">` : "";
+  var image = message.image.url? `<img src="${message.image.url}">` : "";
   var html = `<div class="contents__chat-right-side__messages__message">
                 <div class="contents__chat-right-side__messages__message__upper-info">
                     <div class="contents__chat-right-side__messages__message__upper-info__talker">
@@ -33,10 +33,9 @@ $(function(){
       })
 
       .done(function(data){
-        console.log(data)
         var html = buildHTML(data);
         $('.contents__chat-right-side__messages').append(html);
-        $('.new_message')[0].reset();
+        $("form")[0].reset();
         $('.form__submit').prop('disabled', false);
         $('.contents__chat-right-side__messages').animate({ scrollTop: $('.contents__chat-right-side__messages')[0].scrollHeight}, 'fast');
       })
