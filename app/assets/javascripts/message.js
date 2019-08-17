@@ -47,11 +47,6 @@ $(function(){
   var reloadMessages = function () {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       var last_message_id = $('.contents__chat-right-side__messages__message:last').data("message-id");
-      // var group_id = $(".group").data("group-id");
-
-      // var reloadMessages = function () {
-      //   if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      //     var last_id = $('.message:last').data("message-id");
 
     $.ajax({
       url: "api/messages",
