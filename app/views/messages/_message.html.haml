@@ -1,4 +1,4 @@
-.contents__chat-right-side__messages__message
+.contents__chat-right-side__messages__message{"data-message-id": "#{message.id}"}
   .contents__chat-right-side__messages__message__upper-info
     .contents__chat-right-side__messages__message__upper-info__talker
       = message.user.name
@@ -9,4 +9,3 @@
     %p.contents__chat-right-side__messages__message__text
       = message.content
   = image_tag message.image.url, class: 'contents__chat-right-side__messages__message__text' if message.image.present?
-

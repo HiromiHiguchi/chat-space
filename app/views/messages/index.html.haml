@@ -8,16 +8,16 @@
     .contents__chat-right-side__top
       .contents__chat-right-side__top__left-box
         .contents__chat-right-side__top__left-box__current-group
-          test-group
-        .contents__chat-right-side__top__left-box__member-list
-          %ul Member ：
+          = @group.name
+        %ul.contents__chat-right-side__top__left-box__member-list
+          Member ：
           %li.contents__chat-right-side__top__left-box__member-list__member 
-          aaa
-          %li.contents__chat-right-side__top__left-box__member-list__member 
-          test-user
-      .contents__chat-right-side__top__edit-btn
-        Edit
-  
+            - @group.group_users.each do |group_user|
+              = group_user.user.name
+      %p.contents__chat-right-side__top__edit-btn
+        = link_to edit_group_path(@group.id) do
+          Edit
+
     .contents__chat-right-side__messages
       = render @messages
     
