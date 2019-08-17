@@ -26,7 +26,7 @@ $(function() {
               </div>`
 
     search_list.append(html);
-  }
+    }
 
     $("#user-search-field").on("keyup", function(e) {
       var input = $("#user-search-field").val();
@@ -60,7 +60,7 @@ $(function() {
         $(this).parent().remove();
       });
 
-　    $(document).on("click", '.user-search-remove', function(e) {
+      $(document).on("click", '.user-search-remove', function(e) {
         $(this).parent().remove();
       });
-    });
+});
