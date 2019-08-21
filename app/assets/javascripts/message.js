@@ -12,10 +12,12 @@ $(function(){
                   </div>
                 </div>
                 <div class="contents__chat-right-side__messages__message__text">
-                    <p class="contents__chat-right-side__messages__message__text">
+                    <div class="contents__chat-right-side__messages__message__text">
                         ${ message.content }
+                        </div>
+                        <div>
                         ${image}
-                    </p>
+                    </div>
                 </div>`
         return html; 
   }
@@ -60,8 +62,8 @@ $(function(){
         messages.forEach(function (message) {
           insertHTML = buildHTML(message);
           $('.contents__chat-right-side__messages').append(insertHTML);
+          $('.contents__chat-right-side__messages').animate({scrollTop: $('.contents__chat-right-side__messages')[0].scrollHeight}, 'fast');
         })
-        $('.contents__chat-right-side__messages').animate({scrollTop: $('.contents__chat-right-side__messages')[0].scrollHeight}, 'fast');
       })
       .fail(function () {
         alert('自動更新に失敗しました');

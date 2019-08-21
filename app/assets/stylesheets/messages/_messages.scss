@@ -1,6 +1,10 @@
 *{
   box-sizing: border-box;
 }
+a{
+  text-decoration: none;
+
+}
 .contents {
   height: 100vh;
   width: 100vw;
@@ -99,10 +103,12 @@
         padding: 0 20px;
         margin-top: 30px;
         border: solid 1px #38aef0;
-        color: #38aef0;
         position: absolute;
         right: 40px;
       }
+        a {
+          color: #38aef0;
+        }
     }
     &__messages {
       height: calc(100vh - 190px);
